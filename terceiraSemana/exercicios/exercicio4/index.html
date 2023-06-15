@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>        
+        <h1>Formulário de cadastro</h1>
+    </header>
+       
+        <form class="formularioCadastro" action="">
+            <label for="descricao">Preencha os dados</label>
+
+            <fieldset>
+
+                <div>
+                    <label for="nomeUsuario">Nome:</label>
+                    <input
+                        type="text"
+                        id="nomeUsuario"
+                        name="nome-Usuario"
+                        placeholder="Digite seu nome"
+                    > 
+                </div>
+
+                <div>
+                    <label for="dataNascimento">Data de nascimento:</label>
+                    <input type="text"
+                    id="dataNascimento"
+                    name="data-nascimento"
+                    placeholder="mm/dd/yyyy" 
+                > 
+                </div>
+
+                <div>
+                    <label for="cpf">CPF:</label>
+                    <input type="text"
+                    id="cpf"
+                    name="cpf"                
+                > 
+                <div>
+                    <label for="cidade">Município:</label>
+                    <select name="municipio" id="municipio">
+                        <option value="" disabled selected >selecione</option>
+                    </select>               
+                > 
+
+                </div> 
+
+                </div>   
+            </fieldset>    
+        </form>  
+        
+    </body>
+</html>
