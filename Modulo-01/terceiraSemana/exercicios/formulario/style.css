@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* Da um aspecto  gradiente de cor, utiliza-se dois tons*/
+    background-image: linear-gradient(to right,rgb(20,147,220),rgb(17,54,71));
+}
+/*Para centralizar o conteudo da div box*/
+.box{
+    color: white;
+    /*Para se adequar dentro dela mesmo*/
+    position: absolute;
+   /*Para centralizar dentro dela mesmo*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 15px;
+    min-width:320px;
+    max-width:800px ;
+}
+fieldset{
+    border: 3px solid dodgerblue;
+}
+legend{   
+    text-align: center;  
+    border: 1px solid dodgerblue;
+    padding: 10px;
+    background-color: dodgerblue;
+    border-radius: 10px;  
+   
+}
+.inputBox{
+    position: relative;    
+}
+.inputUser{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+.labelInput{
+    /*(Position: absolute) leva pra dentro do campo de input as informaçoes da label */
+    position: absolute;
+    top: 0px;
+    left: 0px;  
+    pointer-events: none; 
+    transition:.5s;
+}
+
+#data_nascimento{
+    border:none;
+    padding: 8px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+}
+
+.inputUser:focus ~ .labelInput,
+.inputUser:valid ~ .labelInput{
+    top: -20px;
+    font-size: 12px;
+    color: dodgerblue;
+}
