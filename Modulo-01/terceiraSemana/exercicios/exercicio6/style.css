@@ -9,6 +9,7 @@ div,
 header,
 main,
 footer,
+form,
 p,
 span,
 h1,
@@ -17,7 +18,10 @@ h3,
 h4,
 h5,
 h6,
-a {
+a,
+ol,
+ul,
+li {
   margin: 0;
   border: 0;
   padding: 0;
@@ -72,5 +76,109 @@ nav > a:hover {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
 }
+#card-container{
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-evenly;
+    display: flex;
+    width: 100%;   
+    gap: 16px;
+    flex-wrap: wrap; 
+    
+}
+
+#card-container > li {
+    display: flex;
+    flex-direction: column;
+    border-width: 1px;
+    border-style: solid;    
+    border-radius: 16px;
+    border-color: #000080;
+    padding: 8px;
+    gap: 8px;
+}
+
+#card-container > li > img {
+    width: 320px;
+    aspect-ratio: 4/3;
+    display: block;
+    background-color: rgb(185, 192, 192);
+    border-radius: 8px;
+
+    
+}
+#card-container > li > h3 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-style: italic;
+    color: #000080;
+
+}
+
+#card-container > li > .card-details {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+#card-container > li > .card-details > a {
+    color: white;
+    background-color: red;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card-container > li > .card-details > .price > h4{
+    font-size: 0.8rem;
+    font-weight: normal ;
+}
+#card-container > li > .card-details > .price > p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  form {
+    width: 1046px;
+    /* Exemplo de uso de calc */
+    max-width: calc(100vw - 64px);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: navy;
+    font-weight: bold;
+  }
+  
+  form input {
+    border-color: gray;
+    border-radius: 8px;
+    padding: 8px;
+  }
+  
+  form input[type="text"] {
+    flex-grow: 1;
+  }
+  
+  form button[type="submit"] {
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
