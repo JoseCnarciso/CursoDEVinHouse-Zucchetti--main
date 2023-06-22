@@ -18,6 +18,9 @@ function clicarBotao() {
         document.getElementById('loginButton').disabled = true
         document.getElementById('loginButton').style.opacity = .5
         document.getElementById('loginButton').innerText = "Logando ..."
+
+        // redirecionando para outra tela
+        window.location.href = "./feed.html"
     }
 
     console.log(email)
