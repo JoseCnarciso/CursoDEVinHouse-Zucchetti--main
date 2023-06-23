@@ -1,0 +1,81 @@
+:root {
+    width: 0;
+    height: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 45px;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+fieldset {
+    color: black;
+    background-color: rgb(174, 196, 218);
+    border: 3px;
+    border-color: 1px solid black;
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    pad: 1px;
+
+    gap: 15px;
+}
+
+fieldset .botaoCalcularFgts {
+    background-color: rgb(29, 75, 61);
+    border-radius: 10px;
+    outline: none;
+}
+
+.botaoCalcularFgts:hover {
+    background-color: aquamarine;
+}
+
+
+table {
+    margin-top: 5%;
+    border:1px solid black;
+    align-items: flex-end;
+    
+  }
+
+.resultadoFGTS {
+    
+    color: black(7, 7, 7);
+    background-color: rgb(123, 129, 135);
+    border: 3px;
+    border-color: 1px solid black;   
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 1px;  
+    gap: 15px;
+
+}
+
+table {    
+    background-color: rgb(123, 243, 237);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+input {
+    height: 16px;
+    width: 10%;
+    border-radius: 8px;
+    border: 1px solid #756767;
+    outline: none;
+}
