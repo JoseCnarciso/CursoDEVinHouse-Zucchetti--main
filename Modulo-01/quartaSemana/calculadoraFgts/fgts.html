@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo FGTS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container" id="container">
+        <h1>Calcular FGTS</h1>
+        <fieldset id="input-dados" class="input-dados">
+            <div id="inputs" class="inputs">
+                <div id="input-salario" class="input-dados-valor">
+                    <label for="">Sálario bruto</label>
+                    <input type="text" value="" id="input-valor-salario" class="input-dados-valor"  placeholder="R$">
+                </div>
+                <div id="input-qtd-mess" class="input-dados-valor">
+                    <label for="">Meses acumulados</label>
+                    <input type="text" value="" id="input-qtd-meses" class="input-dados-valor" placeholder="Meses">
+                </div>
+                <button type="button" id="calcular" class="calcular">Calcular</button>
+            </div>
+            <div id="resultado-valor" class="resultado-valor">
+                <h3>Resultado</h3>
+                <label for="" id="text-valor-final">Montante do FGTS acumulado: </label>
+                <table id="tabela-demosntrativa" class="tabela-demosntrativa">
+                   <tbody>
+                    <tr>
+                        <th>Benefício</th>
+                        <th>Alíquota</th>
+                        <th>Valor mensal</th>
+                        <th>Valor acumulado</th>
+                    </tr>
+                    <tr>
+                        <td id="beneficio">teste 1</td>
+                        <td id="aliquota">teste 1</td>
+                        <td id="valorMensal">teste 1</td>
+                        <td id="valorAcumulado">teste 1</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+    <script src="fgts.html"></script>
+</body>
+
+</html>
