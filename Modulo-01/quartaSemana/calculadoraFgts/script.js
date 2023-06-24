@@ -1,29 +1,20 @@
 function calcularValorMensal() {
-    var salarioBruto = document.getElementById('input-valor-salario').value   
-
-    const valorSercobradoImposto = salarioBruto - 1903.98
-    var impostoRenda = 0
-
-    if (salarioBruto >= 1903.98) {
-        alert('isento')
-    } else if (salarioBruto <= 2826.65) {
-        impostoRenda = valorSercobradoImposto * 0.075
-
-    } else if (salarioBruto <= 3751.05) {
-        impostoRenda = valorSercobradoImposto * 0.15
-
-    } else if (salarioBruto < 4664.68) {
-        impostoRenda = valorSercobradoImposto * 0.225
-
-    } else  {
-        impostoRenda = valorSercobradoImposto * 0.275
-        
-    }
+    var salarioBruto = document.getElementById('input-valor-salario').value;
+    var fgts = salarioBruto * 0.08;
+    return fgts;
 }
 
-function calcularQuantidadeMeses(){    
-    calcularValorMensal()
-    var valorTotalDeMeses = document.getElementById('input-qtd-meses').value
-    valorTotalDeMeses = (valorTotalDeMeses * calcularValorMensal)
+function calcularQuantidadeMeses() {
+    var valorMensal = calcularValorMensal();
+    var valorTotalDeMeses = document.getElementById('input-qtd-meses').value;
+    return valorMensal * valorTotalDeMeses;
+}
 
+function valorTotal() {
+    var totalArrecadado = calcularQuantidadeMeses();
+    var valorMensal = calcularValorMensal().toFixed(2);
+    var valorAcumulado = totalArrecadado.toFixed(2);
+
+    document.getElementById('valorMensal').textContent = 'R$ ' + valorMensal;
+    document.getElementById('valorAcumulado').textContent = 'R$ ' + valorAcumulado;
 }
