@@ -15,6 +15,7 @@
     background-color: #cadbca;
 }
 
+
 .resultado-valor {
     margin: 5% auto;
     display: flex;
@@ -28,6 +29,9 @@
     border: none;
     display: inline-block;
     padding: 3px 6px;
+}
+.calcular:hover{
+    background:dodgerblue;
 }
 
 .inputs {
@@ -47,6 +51,7 @@
 }
 
 .novo-calculo {
+    margin-top: 5px;
     color: white;
     background-color: rgb(14, 190, 235);
     border-radius: 8px;
@@ -64,6 +69,12 @@
     flex-direction: column;
     justify-content: right;    
     
+}
+
+.todos-itens{    
+    margin: 0 auto;
+    width: 50%;
+    background-color: #cadbca;
 }
 
 

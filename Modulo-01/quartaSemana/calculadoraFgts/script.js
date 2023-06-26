@@ -1,18 +1,37 @@
 // Função para calcular o valor mensal do FGTS
-function calcularValorMensal() {
+function validarEntradaNumerica(valor) {
+    if (isNaN(valor) || valor === '') {
+      return false;
+    }
+    return true;
+  }
+  
+  function calcularValorMensal() {
     var salarioBruto = document.getElementById('input-valor-salario').value;
+    
+    if (!validarEntradaNumerica(salarioBruto)) {
+      alert('Digite um valor numérico para o salário.');
+      return 0;
+    }
+    
     var fgts = salarioBruto * 0.08;
     // Retorna o valor do FGTS
     return fgts;
-}
-
-// Função para calcular a quantidade de meses contribuídos
-function calcularQuantidadeMeses() {
+  }
+  
+  function calcularQuantidadeMeses() {
     var valorMensal = calcularValorMensal();
     var valorTotalDeMeses = document.getElementById('input-qtd-meses').value;
+    
+    if (!validarEntradaNumerica(valorTotalDeMeses)) {
+      alert('Digite um valor numérico para a quantidade de meses.');
+      return 0;
+    }
+    
     // Retorna o valor total
     return valorMensal * valorTotalDeMeses;
-}
+  }
+  
 function exibirResultado() {
     var totalArrecadado = calcularQuantidadeMeses();
     var valorMensal = calcularValorMensal().toFixed(2);
