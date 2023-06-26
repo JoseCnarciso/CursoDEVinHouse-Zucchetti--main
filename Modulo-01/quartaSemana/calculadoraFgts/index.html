@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cálculo FGTS</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Calcular FGTS</h1>
+    <fieldset id="input-dados" class="input-dados">
+      <div id="inputs" class="inputs">
+        <div id="input-salario" class="input-dados-valor">
+          <label for="input-valor-salario">Salário bruto</label>
+          <input type="text" id="input-valor-salario" class="input-dados-valor" placeholder="R$">
+        </div>
+        <div id="input-qtd-mess" class="input-dados-valor">
+          <label for="input-qtd-meses">Meses acumulados</label>
+          <input type="text" id="input-qtd-meses" class="input-dados-valor" placeholder="Meses">
+        </div>
+        <button type="button" id="calcular" class="calcular" onclick="exibirResultado()">Calcular</button>
+      </div>
+    </fieldset> 
+  </div>
+</body>
+
+</html>

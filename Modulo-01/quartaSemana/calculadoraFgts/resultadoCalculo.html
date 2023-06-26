@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado do Cálculo FGTS</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <table id="tabela-demonstrativa" class="tabela-demonstrativa">
+      <tbody>
+        <tr>
+          <th>Benefício</th>
+          <th>Alíquota</th>
+          <th>Valor mensal</th>
+          <th>Valor acumulado</th>
+        </tr>
+        <tr>
+          <td id="beneficio">FGTS</td>
+          <td id="aliquota">8%</td>
+          <td id="valorMensal">-</td>
+          <td id="valorAcumulado">-</td>
+        </tr>
+      </tbody>
+    </table>
+    <button id="novo-calculo" class="novo-calculo" onclick="window.location.href='index.html'">Fazer novo cálculo</button>
+  </div>
+
+  <script>
+    // Recupera os valores armazenados em localStorage
+    var valorMensal = localStorage.getItem('valorMensal');
+    var valorAcumulado = localStorage.getItem('valorAcumulado');
+
+    // Atualiza o conteúdo HTML com os valores recuperados
+    document.getElementById('valorMensal').textContent = 'R$ ' + valorMensal;
+    document.getElementById('valorAcumulado').textContent = 'R$ ' + valorAcumulado;
+  </script>
+</body>
+
+</html>

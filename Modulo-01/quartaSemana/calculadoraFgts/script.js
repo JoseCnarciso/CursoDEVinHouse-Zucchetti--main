@@ -1,25 +1,37 @@
-// Esta função pega os dados do iinput do salário pelo id
+// Função para calcular o valor mensal do FGTS
 function calcularValorMensal() {
     var salarioBruto = document.getElementById('input-valor-salario').value;
     var fgts = salarioBruto * 0.08;
-    // retorna o valor do fgts 
+    // Retorna o valor do FGTS
     return fgts;
 }
-// pega o input da quantidade de meses contribuidos
+
+// Função para calcular a quantidade de meses contribuídos
 function calcularQuantidadeMeses() {
     var valorMensal = calcularValorMensal();
     var valorTotalDeMeses = document.getElementById('input-qtd-meses').value;
-    // retorna o valor total
+    // Retorna o valor total
     return valorMensal * valorTotalDeMeses;
 }
-
-function valorTotal() {
+function exibirResultado() {
     var totalArrecadado = calcularQuantidadeMeses();
     var valorMensal = calcularValorMensal().toFixed(2);
     var valorAcumulado = totalArrecadado.toFixed(2);
-    // Pega o id da tabela e insere os dados em tela 
-    document.getElementById('valorMensal').textContent = 'R$ ' + valorMensal;
-    document.getElementById('valorAcumulado').textContent = 'R$ ' + valorAcumulado;
-    document.getElementById('text-valor-final').textContent = 'Montante acumulado R$: ' + valorAcumulado
+  
+    // Armazena os resultados em localStorage para acessar na nova página
+    localStorage.setItem('valorMensal', valorMensal);
+    localStorage.setItem('valorAcumulado', valorAcumulado);
+  
+    // Redireciona para a página de resultado
+    window.location.href = 'resultadoCalculo.html';
+  }  
+
+function novoCalculo() {
+    // Limpa os campos e esconde a seção de resultado
+    document.getElementById('input-valor-salario').value = '';
+    document.getElementById('input-qtd-meses').value = '';
+    document.getElementById('output-dados').style.display = 'none';
 }
 
+document.getElementById('calcular').addEventListener('click', exibirResultado);
+document.getElementById('novo-calculo').addEventListener('click', novoCalculo);

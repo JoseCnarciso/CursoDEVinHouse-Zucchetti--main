@@ -21,6 +21,14 @@
     flex-direction: column;
     width: 100%;;
 }
+.calcular{
+    color: white;
+    background-color: rgb(14, 190, 235);
+    border-radius: 8px;
+    border: none;
+    display: inline-block;
+    padding: 3px 6px;
+}
 
 .inputs {
     padding: 3px;
@@ -38,7 +46,7 @@
     gap: 5px;
 }
 
-.calcular {
+.novo-calculo {
     color: white;
     background-color: rgb(14, 190, 235);
     border-radius: 8px;
@@ -47,30 +55,16 @@
     padding: 3px 6px;
 }
 
-.calcular:hover {
+.novo-calculo:hover {
     background-color: dodgerblue;
 }
 
 .resultado-valor {    
     display: flex;
     flex-direction: column;
-    justify-content: right;
-    
-    
-}
-
-.tabela-demosntrativa {
-    text-align: center;
-    margin-top: 5px;
-    font-size: 13px;
-    border-collapse: collapse;
+    justify-content: right;    
     
 }
 
-td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: center;
-    
-}
+
 
