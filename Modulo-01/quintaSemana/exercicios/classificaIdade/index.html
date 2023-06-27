@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação das Idades</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Você é uma pessoa Jovem, Adulta ou Idosa</h1>
+
+    <form action="" class="formulario" id="formulario">
+
+       <ul>
+        <li>
+            Pessoa Jovem - Idade até 15 anos;
+        </li>
+        <li>
+            Pessoa Adulta - Idade entre 16 até 64 anos;
+        </li>
+        <li>
+            Pessoa Idosa - De 65 anos em diante.
+        </li>
+       </ul>
+
+        <div class="input-dados" id="input-dados">
+            <input type="tex" 
+            oninput="this.value = this.value.
+            replace(/[^0-9.]/g, '')
+            .replace(/(\..*?)\..*/g, '$1');"  autofocus id="input-idade" class="input-idade" placeholder="Digite sua Idade">
+        </div>
+        <button type="button" id="botao-idade" class="botao-idade" onclick="classificarIdade()">visualizar</button>
+
+
+
+
+    </form>
+</body>
+
+</html>
