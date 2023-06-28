@@ -52,5 +52,16 @@ const listaPessoas =[
 console.log(listaPessoas[0].profissao);
 
 
+//  Operador REST
+function calcula(a,b,...Butijao){
+    console.log(a,b,Butijao)
+
+}
 
 
+
+// Operador SPREAD
+const exemploSpread = [4,5,6,7,9];
+
+calcula(exemploSpread);
+console.log(calcula(...exemploSpread))
