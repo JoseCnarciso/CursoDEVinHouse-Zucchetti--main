@@ -10,7 +10,7 @@ function classificarIdade(){
         return alert("Pessoa Jovem");
     }else if(idade <=64){
         return alert('Pessoa Adulta');
-    }else if(idade >= 65){
+    }else{
         return alert("Pessoa Idosa");
     }
 
