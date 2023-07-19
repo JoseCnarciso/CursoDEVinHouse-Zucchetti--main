@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/stilies.css">
-    <script src="./scripts/customerRegistration.js" type="module"></script>
+    <script src="scripts/customerRegistration.js" type="module"></script>
     <title>Cadastro de reservas</title>
 </head>
 
@@ -31,26 +31,46 @@
                     </label>
                     <div class="input-box">
                         <label>
-                            Início da reserva
+                            Check-in
                             <div class="input-field">
                                 <i class="fa-solid fa-key"></i>
                                 <input type="date" id="startBooking" name="startBooking">
                             </div>
                         </label>
                         <label>
-                            Final da reserva
+                            Checkout
                             <div class="input-field">
                                 <i class="fa-solid fa-key"></i>
-                                <input type="date" id="endOfBooking" name="endOfBooking">
+                                <input type="date" id="endBooking" name="endBooking">
+                            </div>
+                        </label>
+                        <label>
+                            Apartamentos disponíveis
+                            <div class="input-box">
+                                <select class="form-select" id="form-select-apartment">
+                                    <option selected>Selecione o seu apartamento aqui</option>
+                                </select>
                             </div>
                         </label>
                         <button type="submit" id="bookButton">
                             Reservar
                         </button>
-
-
-
         </form>
+        <h2>Apartamentos Alugados</h2>
+        <table id="apartmentsTable">
+            <thead>
+                <tr>
+                    <th>Apartamento</th>
+                    <th>Nome do Cliente</th>
+                    <th>CPF</th>
+                    <th>Data de Entrada</th>
+                    <th>Data de Saída</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aqui a tabela será preenchida dinamicamente com JavaScript -->
+            </tbody>
+        </table>
     </main>
 </body>
 
