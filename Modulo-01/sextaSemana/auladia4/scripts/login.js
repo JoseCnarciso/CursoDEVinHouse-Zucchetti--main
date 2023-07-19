@@ -1,11 +1,11 @@
-const usuarios = [
-    { email: 'josecdia@hotmail.com', senha: '87120518' },
-    { email: 'ionecdia@hotmail.com', senha: '87120519' },
-    { email: 'francisco@hotmail.com', senha: '87120520' }
-];
+import { usuarios } from '../constantes/usuarios.js'
 
 const clicarNoBotao = document.getElementById('login-button');
-clicarNoBotao.addEventListener('click', () => {
+
+clicarNoBotao.addEventListener('click', clicarBottao);
+
+
+function clicarBottao() {
     const email = document.getElementById("campo-email").value;
     const senha = document.getElementById("campo-senha").value;
 
@@ -30,10 +30,12 @@ clicarNoBotao.addEventListener('click', () => {
         } else {
 
             document.getElementById("login-button").disabled = false;
-            document.getElementById("logint-button").style.opacity = 1;
-            document.getElementById("login-button").innerText = "Entrar";
+            document.getElementById("login-button").style.opacity = 1
+            document.getElementById("login-button").innerText = "Entrar"
+
             alert("Usuário não encontrado");
         }
     }
-});
+};
+
 
