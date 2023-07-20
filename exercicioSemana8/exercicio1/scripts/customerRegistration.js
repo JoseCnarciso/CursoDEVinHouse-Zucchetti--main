@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.getElementById('registration-form').addEventListener('submit', registerReservation);
 
-const guests = [];
 const reservedApartments = [];
 const allApartaments = [101, 102, 103, 201, 202, 203, 301, 302, 303, 401, 402, 403];
 
@@ -50,15 +49,12 @@ function registerReservation(event) {
     cpf.value = "";
     startBooking.value = "";
     endBooking.value = "";
-
+    
     // Atualizar o <select> após a reserva
     updateApartmentSelect();
 
     // Atualizar a tabela com os apartamentos alugados
-    updateApartmentsTable();
-
-    
-    
+    updateApartmentsTable();       
 }
 
 function updateApartmentSelect() {
