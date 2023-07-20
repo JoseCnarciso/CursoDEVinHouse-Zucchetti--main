@@ -78,6 +78,24 @@ function formatarDataParaBR(data) {
     return new Date(data).toLocaleDateString('pt-BR', options);
 }
 
+function cancelarReserva(apartmentNumber) {
+    const reservationIndex = reservedApartments.findIndex(reservation => reservation.apartmentNumber === apartmentNumber);
+
+    if (reservationIndex !== -1) {
+        // Adicionar o apartamento novamente ao array allApartaments
+        allApartaments.push(apartmentNumber);
+
+        // Remover a reserva do array reservedApartments
+        reservedApartments.splice(reservationIndex, 1);
+
+        // Atualizar o <select> após o cancelamento da reserva
+        updateApartmentSelect();
+
+        // Atualizar a tabela com os apartamentos alugados
+        updateApartmentsTable();
+    }
+}
+
 function updateApartmentsTable() {
     const tableBody = document.querySelector("#apartmentsTable tbody");
     tableBody.innerHTML = "";
@@ -90,8 +108,18 @@ function updateApartmentsTable() {
             <td>${reservation.guestCPF}</td>
             <td>${formatarDataParaBR(reservation.checkInDate)}</td>
             <td>${formatarDataParaBR(reservation.checkOutDate)}</td>
+            <td><button class="cancel-button" data-apartment="${reservation.apartmentNumber}">Cancelar Reserva</button></td>
         `;
         tableBody.appendChild(row);
+    });
+
+    // Adicionar o evento de clique ao botão "Cancelar Reserva"
+    const cancelButtons = document.querySelectorAll('.cancel-button');
+    cancelButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const apartmentNumber = parseInt(button.dataset.apartment, 10);
+            cancelarReserva(apartmentNumber);
+        });
     });
 }
 
