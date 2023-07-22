@@ -1,9 +1,10 @@
-// Defina a função para adicionar os apartamentos após o carregamento do DOM
+// Defin a função para adicionar os apartamentos após o carregamento do DOM
 document.addEventListener("DOMContentLoaded", function () {
     apartaments();
 });
 
 document.getElementById('registration-form').addEventListener('submit', registerReservation);
+
 
 const reservedApartments = [];
 const allApartaments = [101, 102, 103, 201, 202, 203, 301, 302, 303, 401, 402, 403];
@@ -23,9 +24,9 @@ function registerReservation(event) {
 
     const selectElement = document.getElementById('form-select-apartment');
     const selectedApartament = parseInt(selectElement.value, 10);
-
+    
     if (!selectedApartament || reservedApartments.some(reservation => reservation.apartmentNumber === selectedApartament)) {
-        alert("Selecione um apartamento válido e disponível.");
+        alert("Selecione um apartamento disponível.");
         return;
     }
 
@@ -83,6 +84,9 @@ function cancelarReserva(apartmentNumber) {
 
         // Remover a reserva do array reservedApartments
         reservedApartments.splice(reservationIndex, 1);
+
+        // Ordenar a lista allApartaments em ordem crescente
+        allApartaments.sort((a, b) => a - b);
 
         // Atualizar o <select> após o cancelamento da reserva
         updateApartmentSelect();

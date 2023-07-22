@@ -1,7 +1,226 @@
 {
-    "reservas": [],
-    "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "json-server  database.json -p --666"
+  "reservas": [
+    {
+      "fullName": {},
+      "cpf": {},
+      "startBooking": {},
+      "endBooking": {},
+      "id": 1
+    },
+    {
+      "fullName": {},
+      "cpf": {},
+      "startBooking": {},
+      "endBooking": {},
+      "id": 2
+    },
+    {
+      "fullName": {},
+      "cpf": {},
+      "startBooking": {},
+      "endBooking": {},
+      "id": 3
+    },
+    {
+      "fullName": {},
+      "cpf": {},
+      "startBooking": {},
+      "endBooking": {},
+      "id": 4
+    },
+    {
+      "fullName": {},
+      "cpf": {},
+      "startBooking": {},
+      "endBooking": {},
+      "id": 5
+    },
+    {
+      "fullName": {},
+      "cpf": {},
+      "startBooking": {},
+      "endBooking": {},
+      "id": 6
+    },
+    {
+      "fullName": {},
+      "cpf": {},
+      "startBooking": {},
+      "endBooking": {},
+      "id": 7
+    },
+    {
+      "fullName": {},
+      "cpf": {},
+      "startBooking": {},
+      "endBooking": {},
+      "id": 8
+    },
+    {
+      "fullName": "jose",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-21",
+      "id": 9
+    },
+    {
+      "fullName": "jose",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-21",
+      "id": 10
+    },
+    {
+      "fullName": "jose",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-22",
+      "id": 11
+    },
+    {
+      "fullName": "jose",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-22",
+      "id": 12
+    },
+    {
+      "fullName": "jose",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-22",
+      "id": 13
+    },
+    {
+      "fullName": "jose",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-22",
+      "id": 14
+    },
+    {
+      "fullName": "jose",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-22",
+      "id": 15
+    },
+    {
+      "fullName": "jose",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-22",
+      "id": 16
+    },
+    {
+      "fullName": "jose",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-21",
+      "id": 17
+    },
+    {
+      "fullName": "José Carlos Narciso",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-22",
+      "apartmentNumber": 101,
+      "id": 18
+    },
+    {
+      "fullName": "José Carlos Narciso",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-22",
+      "apartmentNumber": 101,
+      "id": 19
+    },
+    {
+      "fullName": "jose",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-22",
+      "apartmentNumber": 101,
+      "id": 20
+    },
+    {
+      "fullName": "José Carlos Narciso",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-22",
+      "id": 21
+    },
+    {
+      "fullName": "José Carlos Narciso",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-22",
+      "apartmentNumber": 101,
+      "id": 22
+    },
+    {
+      "fullName": "José Carlos Narciso",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-21",
+      "endBooking": "2023-07-21",
+      "apartmentNumber": 101,
+      "id": 23
+    },
+    {
+      "fullName": "jose",
+      "cpf": "23654987152",
+      "startBooking": "2023-07-05",
+      "endBooking": "2023-06-26",
+      "apartmentNumber": 101,
+      "id": 24
+    },
+    {
+      "fullName": "José Carlos Narciso",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-22",
+      "endBooking": "2023-07-23",
+      "apartmentNumber": 101,
+      "id": 25
+    },
+    {
+      "fullName": "José Carlos Narciso",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-22",
+      "endBooking": "2023-07-23",
+      "apartmentNumber": 402,
+      "id": 26
+    },
+    {
+      "fullName": "José Carlos Narciso",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-22",
+      "endBooking": "2023-07-23",
+      "apartmentNumber": 101,
+      "id": 27
+    },
+    {
+      "fullName": "José Carlos Narciso",
+      "cpf": "06161134985",
+      "startBooking": "2023-07-22",
+      "endBooking": "2023-07-23",
+      "apartmentNumber": 102,
+      "id": 28
+    },
+    {
+      "apartmentNumber": 101,
+      "guestName": "jose",
+      "guestCPF": "06161134985",
+      "checkInDate": "2023-07-22",
+      "checkOutDate": "2023-07-23",
+      "id": 29
+    },
+    {
+      "apartmentNumber": 101,
+      "guestName": "Francisco Uberti",
+      "guestCPF": "06161134985",
+      "checkInDate": "2023-07-22",
+      "checkOutDate": "2023-07-23",
+      "id": 30
     }
+  ]
 }

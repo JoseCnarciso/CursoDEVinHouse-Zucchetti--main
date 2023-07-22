@@ -12,49 +12,54 @@
 <body>
     <main id="container">
         <form id="registration-form">
-            <h1>Vem ser Feliz</h1>
-            <div class="input-box">
-                <label>
-                    Nome completo
-                    <div class="input-field">
-                        <i class="fa-solid fa-key"></i>
-                        <input type="text" id="fullName" name="fullName">
-                    </div>
-                </label>
+            <h1>Vem ser Feliz</h1>         
+                <div class="input-box">
+                    <label>
+                        Nome completo
+                        <div class="input-field">
+                            <input type="text" id="fullName" name="fullName" required>
+                            <div class="error-message" hidden>Este campo é obrigatório.</div>
+                        </div>
+                    </label>
+                </div>
                 <div class="input-box">
                     <label>
                         Número do CPF
                         <div class="input-field">
-                            <i class="fa-solid fa-key"></i>
-                            <input type="text" id="cpf" name="cpf">
+                            <input type="text" id="cpf" name="cpf" required>
+                            <div class="error-message" hidden>Este campo é obrigatório.</div>
                         </div>
                     </label>
-                    <div class="input-box">
-                        <label>
-                            Check-in
-                            <div class="input-field">
-                                <i class="fa-solid fa-key"></i>
-                                <input type="date" id="startBooking" name="startBooking">
-                            </div>
-                        </label>
-                        <label>
-                            Checkout
-                            <div class="input-field">
-                                <i class="fa-solid fa-key"></i>
-                                <input type="date" id="endBooking" name="endBooking">
-                            </div>
-                        </label>
-                        <label>
-                            Apartamentos disponíveis
-                            <div class="input-box">
-                                <select class="form-select" id="form-select-apartment">
-                                    <option selected>Selecione o seu apartamento aqui</option>
-                                </select>
-                            </div>
-                        </label>
-                        <button type="submit" id="bookButton">
-                            Reservar
-                        </button>
+                </div>
+                <div class="input-box">
+                    <label>
+                        Check-in
+                        <div class="input-field">
+                            <input type="date" id="startBooking" name="startBooking" required>
+                            <div class="error-message" hidden>Este campo é obrigatório.</div>
+                        </div>
+                    </label>
+                </div>
+                <div class="input-box">
+                    <label>
+                        Checkout
+                        <div class="input-field">
+                            <input type="date" id="endBooking" name="endBooking" required>
+                            <div class="error-message" hidden>Este campo é obrigatório.</div>
+                        </div>
+                    </label>
+                    <label>
+                        Apartamentos disponíveis
+                        <div class="input-box">
+                            <select class="form-select" id="form-select-apartment">
+                                <option selected>Selecione o seu apartamento aqui</option>
+                            </select>
+                        </div>
+                    </label>
+                </div>
+                <button type="submit" id="bookButton">
+                    Reservar
+                </button>
         </form>
         <h2>Apartamentos Alugados</h2>
         <table id="apartmentsTable">
