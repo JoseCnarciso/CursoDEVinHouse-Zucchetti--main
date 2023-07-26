@@ -1,12 +1,16 @@
-// Define a função para adicionar os apartamentos após o carregamento do DOM
 document.addEventListener("DOMContentLoaded", function () {
     apartaments();
+    loadReservedApartmentsFromLocalStorage();
 });
+
+function apartaments() {
+    updateApartmentSelect();
+}
 
 document.getElementById('registration-form').addEventListener('submit', registerReservation);
 
+let reservedApartments = [];
 
-const reservedApartments = [];
 const allApartaments = [101, 102, 103, 201, 202, 203, 301, 302, 303, 401, 402, 403];
 
 const fullName = document.getElementById('fullName');
@@ -24,74 +28,85 @@ function registerReservation(event) {
 
     const selectElement = document.getElementById('form-select-apartment');
     const selectedApartament = parseInt(selectElement.value, 10);
-    
+
     if (!selectedApartament || reservedApartments.some(reservation => reservation.apartmentNumber === selectedApartament)) {
         alert("Selecione um apartamento disponível.");
         return;
     }
 
-    // Remover o apartamento selecionado do array allApartaments
     const apartmentIndex = allApartaments.indexOf(selectedApartament);
     if (apartmentIndex !== -1) {
         allApartaments.splice(apartmentIndex, 1);
     }
 
-    // Adicionar o apartamento selecionado ao array reservedApartments com as informações do hóspede
     reservedApartments.push({
         apartmentNumber: selectedApartament,
         guestName: newFullName,
         guestCPF: newCpf,
         checkInDate: newStartBooking,
-        checkOutDate: newEndBooking
+        checkOutDate: newEndBooking,
     });
 
-    // Limpar campos de reserva após a reserva ser feita
     fullName.value = "";
     cpf.value = "";
     startBooking.value = "";
     endBooking.value = "";
-    
-    // Atualizar o <select> após a reserva
-    updateApartmentSelect();
 
-    // Atualizar a tabela com os apartamentos alugados
-    updateApartmentsTable(); 
-    
-    
+    saveReservedApartmentsToLocalStorage();
+    updateApartmentsTable();
+
     fetch('http://localhost:3000/reservas', {
-            method: 'POST',
-            body: JSON.stringify({
-                newFullName,
-                newCpf,
-                newEndBooking,
-                newEndBooking
-            }),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(() => {
-            alert('Cadastrado com sucesso')
-            // window.location.href = "./index.html"
-        })
-        .catch(() => {
-            alert("Desculpe. Houve um erro ao cadastrar o usuario")
-        })
-    
-
+        method: 'POST',
+        body: JSON.stringify(reservedApartments[reservedApartments.length - 1]),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao salvar a reserva no servidor.');
+        }
+        return response.json(); // Recebe a resposta do servidor (que inclui o ID da reserva)
+    })
+    .then(reservationWithId => {
+        // Assume que o servidor respondeu com o objeto completo da reserva (incluindo o ID)
+        reservedApartments[reservedApartments.length - 1] = reservationWithId;
+        saveReservedApartmentsToLocalStorage();
+        updateApartmentSelect();
+        updateApartmentsTable();
+        console.log('Cadastrado com sucesso');
+    })
+    .catch(error => {
+        alert("Desculpe. Houve um erro ao cadastrar a reserva: " + error.message);
+    });
 }
 
 function updateApartmentSelect() {
     const selectElement = document.getElementById("form-select-apartment");
     selectElement.innerHTML = '<option selected>Selecione o seu apartamento aqui</option>';
 
-    allApartaments.forEach(apartament => {
-        const newOption = document.createElement("option");
-        newOption.value = apartament;
-        newOption.textContent = apartament;
-        selectElement.appendChild(newOption);
+    allApartaments.forEach(apartment => {
+        if (!reservedApartments.some(reservation => reservation.apartmentNumber === apartment)) {
+            const newOption = document.createElement("option");
+            newOption.value = apartment;
+            newOption.textContent = apartment;
+            selectElement.appendChild(newOption);
+        }
     });
+}
+
+function saveReservedApartmentsToLocalStorage() {
+    localStorage.setItem("reservedApartments", JSON.stringify(reservedApartments));
+}
+
+function loadReservedApartmentsFromLocalStorage() {
+    const reservedApartmentsFromStorage = JSON.parse(localStorage.getItem("reservedApartments"));
+    if (reservedApartmentsFromStorage) {
+        reservedApartments = reservedApartmentsFromStorage;
+        updateApartmentSelect();
+        updateApartmentsTable();
+    }
 }
 
 function formatarDataParaBR(data) {
@@ -99,24 +114,32 @@ function formatarDataParaBR(data) {
     return new Date(data).toLocaleDateString('pt-BR', options);
 }
 
-function cancelarReserva(apartmentNumber) {
+async function cancelarReserva(apartmentNumber) {
     const reservationIndex = reservedApartments.findIndex(reservation => reservation.apartmentNumber === apartmentNumber);
 
     if (reservationIndex !== -1) {
-        // Adicionar o apartamento novamente ao array allApartaments
-        allApartaments.push(apartmentNumber);
+        const reservationId = reservedApartments[reservationIndex].id; // Supondo que o servidor fornece um id para cada reserva
 
-        // Remover a reserva do array reservedApartments
-        reservedApartments.splice(reservationIndex, 1);
+        try {
+            const response = await fetch(`http://localhost:3000/reservas/${reservationId}`, {
+                method: 'DELETE',
+            });
 
-        // Ordenar a lista allApartaments em ordem crescente
-        allApartaments.sort((a, b) => a - b);
+            if (!response.ok) {
+                throw new Error('Erro ao excluir a reserva do servidor.');
+            }
 
-        // Atualizar o <select> após o cancelamento da reserva
-        updateApartmentSelect();
+            reservedApartments.splice(reservationIndex, 1);
+            allApartaments.push(apartmentNumber);
+            allApartaments.sort((a, b) => a - b);
+            updateApartmentSelect();
+            updateApartmentsTable();
+            saveReservedApartmentsToLocalStorage();
 
-        // Atualizar a tabela com os apartamentos alugados
-        updateApartmentsTable();
+            console.log('Reserva cancelada com sucesso');
+        } catch (error) {
+            alert("Desculpe. Houve um erro ao cancelar a reserva: " + error.message);
+        }
     }
 }
 
@@ -124,7 +147,7 @@ function updateApartmentsTable() {
     const tableBody = document.querySelector("#apartmentsTable tbody");
     tableBody.innerHTML = "";
 
-    reservedApartments.forEach(reservation => {
+    reservedApartments.forEach((reservation) => {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${reservation.apartmentNumber}</td>
@@ -137,7 +160,6 @@ function updateApartmentsTable() {
         tableBody.appendChild(row);
     });
 
-    // Adicionar o evento de clique ao botão "Cancelar Reserva"
     const cancelButtons = document.querySelectorAll('.cancel-button');
     cancelButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -146,6 +168,3 @@ function updateApartmentsTable() {
         });
     });
 }
-
-// Inicializar o <select> com os apartamentos disponíveis
-updateApartmentSelect();
